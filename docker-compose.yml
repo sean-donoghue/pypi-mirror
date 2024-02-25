@@ -10,6 +10,8 @@ services:
       - "./requirements:/requirements"
     # Mirror mode mirrors all the packages in the mirror list of the config file
     command: bandersnatch mirror
+    # Use instead of above if new packages are not being mirrored
+    # command: bandersnatch mirror --force-check
     networks:
       - bandersnatch_net
 
