@@ -1,2 +1,5 @@
+# Bandersnatch will download a lot of files here, so we ignore everything
 *
+
+# Except for the .gitignore file itself
 !.gitignore
