@@ -17,12 +17,12 @@ Simple setup to run a PyPI mirror using Bandersnatch w/ Docker Compose & nginx.
 
    ```sh
    # Output from pip-compile can vary between environments and Python versions;
-   # Run the script in a Python 3.12 container to ensure consistent results
-   docker run -it --rm -v "$PWD":/app -w /app python:3.12-alpine \
+   # Run the script in a Python 3.11 container to ensure consistent results
+   docker run -it --rm -v "$PWD":/app -w /app python:3.11-alpine \
        sh -c "pip install pip-tools && python compile_requirements.py"
 
-   # Or run it directly if you still want to and have Python 3.12 installed
-   pip3.12 install --user pip-tools && python3.12 compile_requirements.py
+   # Or run it directly if you still want to and have Python 3.11 installed
+   pip3.11 install --user pip-tools && python3.11 compile_requirements.py
    ```
 
 4. Start the Docker Compose stack:
@@ -45,11 +45,14 @@ Your requirements files should also be served at: `http://localhost:5000/`
 To use the mirror instead of PyPI, use the `--index-url` or `-i` option with pip:
 
 ```sh
-pip install pandas --index http://localhost:4000/simple/
+pip install requests --index http://localhost:4000/simple/
 ```
 
 You can also directly use the mirror for requirements files:
 
 ```sh
-pip install -r http://localhost:5000/requirements.txt -i http://localhost:4000/simple/
+pip install -r http://localhost:5000/requirements-example.txt -i http://localhost:4000/simple/
 ```
+
+If you left the example requirements files in the `requirements` directory, the above
+commands should work as-is.
