@@ -37,21 +37,21 @@ Simple setup to run a PyPI mirror using Bandersnatch w/ Docker Compose & nginx.
    docker-compose logs -f bandersnatch
    ```
 
-Your mirror should now be available at: `http://localhost:4000/simple/`  
-Your requirements files should also be served at: `http://localhost:5000/`
+Your mirror should now be available at: `http://localhost/simple/`  
+Your requirements files should also be served at: `http://localhost:81/`
 
 ## Usage
 
 To use the mirror instead of PyPI, use the `--index-url` or `-i` option with pip:
 
 ```sh
-pip install requests --index http://localhost:4000/simple/
+pip install requests --index http://localhost/simple/
 ```
 
 You can also directly use the mirror for requirements files:
 
 ```sh
-pip install -r http://localhost:5000/requirements-example.txt -i http://localhost:4000/simple/
+pip install -r http://localhost:81/requirements-example.txt -i http://localhost/simple/
 ```
 
 If you left the example requirements files in the `requirements` directory, the above

@@ -20,13 +20,13 @@ services:
     volumes:
       # Mount custom nginx.conf at default location
       - "./config/nginx.conf:/etc/nginx/nginx.conf:ro"
-      # Bandersnatch mirror data (maps to port 4000)
+      # Bandersnatch mirror data (maps to port 80)
       - "./data/web:/var/www/html/pypi:ro"
-      # Requirements data (maps to port 5000)
+      # Requirements data (maps to port 81)
       - "./requirements:/var/www/html/requirements:ro"
     ports:
-      - "4000:80"
-      - "5000:90"
+      - "80:80"
+      - "81:81"
     networks:
       - bandersnatch_net
 
